@@ -14,3 +14,6 @@ img{
     height:250px;
     width:200px;
 }
+html, body, h1, div, head{
+    font-family: 'Joti One', cursive;
+}
