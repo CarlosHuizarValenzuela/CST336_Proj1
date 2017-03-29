@@ -19,10 +19,10 @@
         <ul>
           <li><a href="zombieStore.php">Home</a></li>
           <li><a href="gunsPage.php">Guns</a></li>
-          <li><a href="melee.php">Melee</a></li>
-          <li><a href="explosives.php">Exposives</a></li>
-          <li><a href="ammo.php">Ammo</a></li>
-          <li><a href="medical.php">Medical</a></li>
+          <li><a href="meleePage.php">Melee</a></li>
+          <li><a href="explosivesPage.php">Exposives</a></li>
+          <li><a href="ammoPage.php">Ammo</a></li>
+          <li><a href="medicalPage.php">Medical</a></li>
         </ul>
 
     </body>
