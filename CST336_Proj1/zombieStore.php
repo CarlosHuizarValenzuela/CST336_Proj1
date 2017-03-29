@@ -15,25 +15,48 @@
     <body>
 
         <h1>Zombie Survival Store</h1>
-        
-        <div class="w3-display-container mySlides">
-          <img src="imgs/ak47.jpg" style="width:100%">
-          <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
-            Beautiful Mountains
-          </div>
+        <div class="w3-content w3-display-container">
+            <div class="w3-display-container mySlides">
+              <img src="imgs/ak47.jpg" style="width:100%">
+              <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+                AK-47
+              </div>
+            </div>
+            <div class="w3-display-container mySlides">
+              <img src="imgs/doggoEgg.jpg" style="width:100%">
+              <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+                Doggo
+              </div>
+            </div>
+            <div class="w3-display-container mySlides">
+              <img src="imgs/fishCakes.jpg" style="width:100%">
+              <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+                Nami Cakes
+              </div>
+            </div>
         </div>
-        <div class="w3-display-container mySlides">
-          <img src="imgs/doggoEgg.jpg" style="width:100%">
-          <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
-            Beautiful Mountains
-          </div>
-        </div>
-        <div class="w3-display-container mySlides">
-          <img src="imgs/fishCakes.jpg" style="width:100%">
-          <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
-            Beautiful Mountains
-          </div>
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <script>
         var myIndex = 0;
