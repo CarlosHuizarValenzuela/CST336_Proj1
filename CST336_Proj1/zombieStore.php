@@ -14,7 +14,15 @@
     </style>
     
     <body>
-
+        <?php
+          $servername = getenv('IP');
+          $dbPort = 3306;
+          $database = "ZombieStore";
+          $username = getenv('C9_USER');
+          $password = "";
+          $dbConn = new PDO("mysql:host=$servername;port=$dbPort;dbname=$database", $username, $password);
+          $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+        ?>
         <h1>Zombie Survival Store</h1>
         <ul>
           <li><a href="default.asp">Home</a></li>
