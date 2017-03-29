@@ -16,6 +16,14 @@
     <body>
 
         <h1>Zombie Survival Store</h1>
+        <ul>
+          <li><a href="default.asp">Home</a></li>
+          <li><a href="news.asp">Guns</a></li>
+          <li><a href="contact.asp">Melee</a></li>
+          <li><a href="about.asp">Exposives</a></li>
+          <li><a href="about.asp">Ammo</a></li>
+          <li><a href="about.asp">Medical</a></li>
+        </ul>
         <div class="w3-content w3-display-container" style="text-align:center">
             <div class="w3-display-container mySlides">
               <img src="imgs/ak47.jpg">
