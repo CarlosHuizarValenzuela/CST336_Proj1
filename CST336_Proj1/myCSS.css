@@ -10,3 +10,7 @@ h1{
     color:white;
     text-align: center;
 }
+
+html, body, h1, div, head{
+    font-family: 'Joti One', cursive;
+}
