@@ -16,24 +16,18 @@
     <body>
 
         <h1>Zombie Survival Store</h1>
-        <div class="w3-content w3-display-container">
+        <div class="w3-content w3-display-container" style="text-align:center">
             <div class="w3-display-container mySlides">
-              <img src="imgs/ak47.jpg" style="width:100%">
-              <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-                AK-47
-              </div>
+              <img src="imgs/ak47.jpg">
             </div>
             <div class="w3-display-container mySlides">
-              <img src="imgs/doggoEgg.jpg" style="width:100%">
-              <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-                Doggo
-              </div>
+              <img src="imgs/awp.jpg">
             </div>
             <div class="w3-display-container mySlides">
-              <img src="imgs/fishCakes.jpg" style="width:100%">
-              <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-                Nami Cakes
-              </div>
+              <img src="imgs/p2000.jpg">
+            </div>
+            <div class="w3-display-container mySlides">
+              <img src="imgs/m4a4.jpg">
             </div>
         </div>
 
