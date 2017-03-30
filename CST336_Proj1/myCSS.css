@@ -5,7 +5,12 @@ html{
     background: -moz-linear-gradient(to left, #000428, #004e92);
     background: -o-linear-gradient(to left, #000428, #004e92);
     background: linear-gradient(to left, #000428, #004e92); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}                
+}    
+body{
+    margin-left:200px;
+    margin-right:200px;
+    margin-bottom:200px;
+}
 h1{
     color:white;
     text-align: center;

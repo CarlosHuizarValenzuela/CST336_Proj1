@@ -43,8 +43,11 @@
         <?php
             showGuns($dbConn);
             showMelee($dbConn);
+            echo "<div style='clear:right;'></div>";
             showExplosives($dbConn);
+            echo "<div style='clear:left;'></div>";
             showAmmo($dbConn);
+            echo "<div style='clear:right;'></div>";
             showMedical($dbConn);
         ?>
 
@@ -94,13 +97,13 @@
                 ORDER BY Guns.GunId ASC";
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
-        echo "<table>
+        echo "<table style='float:left'>
                 <th colspan='3'>Guns</th>
                 <tr>
                     <td style='width:200px'><b>Gun Model</b></td>
                     <td style='width:100px'><b>Weight (kg)</b></td>
                     <td style='width:100px'><b>Price</b></td>
-                </tr>";
+                </tr><br>";
         while ($row = $stmt->fetch()) {
             echo "  <tr>
                         <td style='width:200px'>".$row['ProductName']."</td>
@@ -108,7 +111,7 @@
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
         }
-        echo "</table><br>";
+        echo "</table>";
     }
     
     function showMelee($dbConn) {
@@ -117,7 +120,7 @@
                 ORDER BY Melee.MeleeId ASC";
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
-        echo "<table>
+        echo "<table style='float:right'>
                 <th colspan='3'>Melee</th>
                 <tr>
                     <td style='width:200px'><b>Melee Weapon</b></td>
@@ -131,7 +134,7 @@
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
         }
-        echo "</table><br>";
+        echo "</table>";
     }
     
     function showExplosives($dbConn) {
@@ -140,7 +143,7 @@
                 ORDER BY Explosives.ExplosivesId ASC";
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
-        echo "<table>
+        echo "<br><table style='float:right'>
                 <th colspan='3'>Explosives</th>
                 <tr>
                     <td style='width:200px'><b>Explosive Type</b></td>
@@ -163,7 +166,7 @@
                 ORDER BY Ammo.AmmoId ASC";
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
-        echo "<table>
+        echo "<br><table style='float:left'>
                 <th colspan='3'>Ammo</th>
                 <tr>
                     <td style='width:200px'><b>Ammo Type</b></td>
@@ -177,7 +180,7 @@
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
         }
-        echo "</table><br>";
+        echo "</table>";
     }
     
     function showMedical($dbConn) {
@@ -186,7 +189,7 @@
                 ORDER BY Medical.MedicalId ASC";
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
-        echo "<table>
+        echo "<br><table style='float:right'>
                 <th colspan='3'>Medical</th>
                 <tr>
                     <td style='width:200px'><b>Medical Equipment</b></td>
