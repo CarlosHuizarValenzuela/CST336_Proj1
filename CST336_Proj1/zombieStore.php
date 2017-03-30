@@ -133,7 +133,10 @@
             showMedical($dbConn);
         ?>
         
-        <input type="submit" name="submit" value="Submit"/>
+        <div id="footer">
+            <input type="submit" name="submit" value="Submit"/>
+        </div>
+        
             
             
         </form>

@@ -111,3 +111,8 @@ th {
     from {opacity: 0;}
     to {opacity:1 ;}
 }
+
+#footer{
+    margin-top: 170px;
+    text-align: center;
+}
