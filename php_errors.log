@@ -1,0 +1,105 @@
+[29-Mar-2017 22:44:26 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 22:44:28 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 22:44:30 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 22:44:43 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 22:45:19 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 22:45:49 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'david_jia'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'david_jia', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 22:45:50 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'david_jia'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'david_jia', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 22:50:27 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Connection timed out' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=198....', 'david_jia', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 22:50:44 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Connection timed out' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=198....', 'david_jia', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 22:52:53 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Connection timed out' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=198....', 'david_jia', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 22:58:52 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 22:59:45 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 23:05:40 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 23:05:41 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 23:05:41 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 23:05:41 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 23:06:07 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 23:06:07 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 23:06:07 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[29-Mar-2017 23:06:09 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
+[30-Mar-2017 00:00:41 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'carloshuizar'@'localhost' (using password: NO)' in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(23): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
+#1 {main}
+  thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 23
