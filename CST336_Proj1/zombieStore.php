@@ -47,6 +47,53 @@
             </div>
         </div>
         
+        
+        <form action="zombieStore.php" method="POST">
+        <!--****************************************************************-->
+        <div>
+        <?php
+            if(!empty($_POST['sortType']) && !empty($_POST['orderType'])){
+                $sortChoice = $_POST['sortType'];
+                $orderChoice = $_POST['orderType'];
+                
+                // echo $sortChoice;
+                // echo $orderChoice;
+            }
+            else if (empty($_POST['sortType']) && empty($_POST['orderType'])) {
+                
+            }
+            else if(empty($_POST['sortType']) || empty($_POST['orderType'])){
+                echo "You cannot have without the other.";
+            }
+        ?>
+        </div>
+        <!--****************************************************************-->
+        <div>
+            <br>
+            <label>Sorting Type:</label>
+            <select name="sortType"> 
+                <option selected="selected" disabled="disabled"></option>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+            
+            <label>Order By Type:</label>
+            <select name="orderType">
+                <option selected="selected" disabled="disabled"></option>
+                <option value="name">Name</option>
+                <option value="price">Price</option>
+                <option value="weight">Weight</option>
+            </select>
+            <br><br>
+            
+            <input type="submit" value="Arrange Items"/>
+            <hr>
+        </div>
+        <!--****************************************************************-->
+        </form>
+        
+        
+        
         <?php
             $next = 0;
             showGuns($dbConn);
