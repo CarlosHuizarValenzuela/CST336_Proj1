@@ -24,14 +24,7 @@
           $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
         ?>
         <h1>Zombie Survival Store</h1>
-        <ul>
-          <li><a href="zombieStore.php">Home</a></li>
-          <li><a href="gunsPage.php">Guns</a></li>
-          <li><a href="meleePage.php">Melee</a></li>
-          <li><a href="explosivesPage.php">Exposives</a></li>
-          <li><a href="ammoPage.php">Ammo</a></li>
-          <li><a href="medicalPage.php">Medical</a></li>
-        </ul>
+    
         <div class="w3-content w3-display-container" style="text-align:center">
             <div class="w3-display-container mySlides">
               <img src="imgs/ak47.jpg">
@@ -46,14 +39,14 @@
               <img src="imgs/m4a4.jpg">
             </div>
         </div>
-
-
-
-
-
-
-
-
+        
+        <?php
+            showGuns($dbConn);
+            showMelee($dbConn);
+            showExplosives($dbConn);
+            showAmmo($dbConn);
+            showMedical($dbConn);
+        ?>
 
 
 
@@ -76,3 +69,120 @@
 
     </body>
 </html>
+
+<?php
+    function showGuns($dbConn) {
+        $sql = "SELECT Guns.*
+                FROM Guns
+                ORDER BY Guns.GunId ASC";
+        $stmt = $dbConn->prepare($sql);
+        $stmt->execute();
+        echo "<table>
+                <th colspan='3'>Guns</th>
+                <tr>
+                    <td style='width:200px'><b>Gun Model</b></td>
+                    <td style='width:100px'><b>Weight (kg)</b></td>
+                    <td style='width:100px'><b>Price</b></td>
+                </tr>";
+        while ($row = $stmt->fetch()) {
+            echo "  <tr>
+                        <td style='width:200px'>".$row['ProductName']."</td>
+                        <td style='width:100px'>".$row['Weight']."</td>
+                        <td style='width:100px'>$".$row['Price']."</td>
+                    </tr>";
+        }
+        echo "</table><br>";
+    }
+    
+    function showMelee($dbConn) {
+        $sql = "SELECT Melee.*
+                FROM Melee
+                ORDER BY Melee.MeleeId ASC";
+        $stmt = $dbConn->prepare($sql);
+        $stmt->execute();
+        echo "<table>
+                <th colspan='3'>Melee</th>
+                <tr>
+                    <td style='width:200px'><b>Melee Weapon</b></td>
+                    <td style='width:100px'><b>Weight (kg)</b></td>
+                    <td style='width:100px'><b>Price</b></td>
+                </tr>";
+        while ($row = $stmt->fetch()) {
+            echo "  <tr>
+                        <td style='width:200px'>".$row['ProductName']."</td>
+                        <td style='width:100px'>".$row['Weight']."</td>
+                        <td style='width:100px'>$".$row['Price']."</td>
+                    </tr>";
+        }
+        echo "</table><br>";
+    }
+    
+    function showExplosives($dbConn) {
+        $sql = "SELECT Explosives.*
+                FROM Explosives
+                ORDER BY Explosives.ExplosivesId ASC";
+        $stmt = $dbConn->prepare($sql);
+        $stmt->execute();
+        echo "<table>
+                <th colspan='3'>Explosives</th>
+                <tr>
+                    <td style='width:200px'><b>Explosive Type</b></td>
+                    <td style='width:100px'><b>Weight (kg)</b></td>
+                    <td style='width:100px'><b>Price</b></td>
+                </tr>";
+        while ($row = $stmt->fetch()) {
+            echo "  <tr>
+                        <td style='width:200px'>".$row['ProductName']."</td>
+                        <td style='width:100px'>".$row['Weight']."</td>
+                        <td style='width:100px'>$".$row['Price']."</td>
+                    </tr>";
+        }
+        echo "</table><br>";
+    }
+    
+    function showAmmo($dbConn) {
+        $sql = "SELECT Ammo.*
+                FROM Ammo
+                ORDER BY Ammo.AmmoId ASC";
+        $stmt = $dbConn->prepare($sql);
+        $stmt->execute();
+        echo "<table>
+                <th colspan='3'>Ammo</th>
+                <tr>
+                    <td style='width:200px'><b>Ammo Type</b></td>
+                    <td style='width:100px'><b>Weight (kg)</b></td>
+                    <td style='width:100px'><b>Price</b></td>
+                </tr>";
+        while ($row = $stmt->fetch()) {
+            echo "  <tr>
+                        <td style='width:200px'>".$row['ProductName']."</td>
+                        <td style='width:100px'>".$row['Weight']."</td>
+                        <td style='width:100px'>$".$row['Price']."</td>
+                    </tr>";
+        }
+        echo "</table><br>";
+    }
+    
+    function showMedical($dbConn) {
+        $sql = "SELECT Medical.*
+                FROM Medical
+                ORDER BY Medical.MedicalId ASC";
+        $stmt = $dbConn->prepare($sql);
+        $stmt->execute();
+        echo "<table>
+                <th colspan='3'>Medical</th>
+                <tr>
+                    <td style='width:200px'><b>Medical Equipment</b></td>
+                    <td style='width:100px'><b>Weight (kg)</b></td>
+                    <td style='width:100px'><b>Price</b></td>
+                </tr>";
+        while ($row = $stmt->fetch()) {
+            echo "  <tr>
+                        <td style='width:200px'>".$row['ProductName']."</td>
+                        <td style='width:100px'>".$row['Weight']."</td>
+                        <td style='width:100px'>$".$row['Price']."</td>
+                    </tr>";
+        }
+        echo "</table><br>";
+    }
+?>
