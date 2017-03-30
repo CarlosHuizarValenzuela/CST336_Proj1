@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    if(empty($_SESSION['Cart'])){
+        $_SESSION['Cart'] = array();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <title>W3.CSS</title>
@@ -207,10 +215,11 @@
                     <td style='width:100px'><b>Price</b></td>
                 </tr><br>";
         while ($row = $stmt->fetch()) {
+            $value = $row["ProductName"];
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart: </label><input type='checkbox' name='Cart[]'>"."</span></td>
+                        "<br><label>Add to Cart: </label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -277,10 +286,11 @@
                     <td style='width:100px'><b>Price</b></td>
                 </tr>";
         while ($row = $stmt->fetch()) {
+            $value = $row["ProductName"];
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]'>"."</span></td>
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -347,10 +357,11 @@
                     <td style='width:100px'><b>Price</b></td>
                 </tr>";
         while ($row = $stmt->fetch()) {
+            $value = $row["ProductName"];
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]'>"."</span></td>
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -417,10 +428,11 @@
                     <td style='width:100px'><b>Price</b></td>
                 </tr>";
         while ($row = $stmt->fetch()) {
+            $value = $row["ProductName"];
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]'>"."</span></td>
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -487,10 +499,11 @@
                     <td style='width:100px'><b>Price</b></td>
                 </tr>";
         while ($row = $stmt->fetch()) {
+            $value = $row["ProductName"];
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]'>"."</span></td>
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
