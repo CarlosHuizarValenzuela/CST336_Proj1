@@ -20,13 +20,17 @@ h1, div{
 h2{ 
     color:white;
 }
+h3{
+    color:white;
+    text-align:center;
+}
 img{
     padding-top: 10px;
     height:200px;
     width:59%;
     text-align: center;
 }
-html, body, h1, h2, div, head{
+html, body, h1, h2, h3, div, head{
     font-family: 'Joti One', cursive;
 }
 table {

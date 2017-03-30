@@ -111,7 +111,7 @@
         </div>
         <!--****************************************************************-->
         </form>
-        
+        <h3>Click on Item to Open Description and Get Option to Add to Cart</h3>
         
         
         <?php
@@ -210,7 +210,7 @@
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='guns[]'>"."</span></td>
+                        "<br><label>Add to Cart: </label><input type='checkbox' name='Cart[]'>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -280,7 +280,7 @@
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='guns[]'>"."</span></td>
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]'>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -350,7 +350,7 @@
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='guns[]'>"."</span></td>
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]'>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -420,7 +420,7 @@
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='guns[]'>"."</span></td>
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]'>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -490,7 +490,7 @@
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='guns[]'>"."</span></td>
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]'>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
