@@ -33,7 +33,7 @@
           $dbPort = 3306;
           $database = "ZombieStore";
           $username = getenv('C9_USER');
-          $password = "";
+          $password = "dankMem3s";
           $dbConn = new PDO("mysql:host=$servername;port=$dbPort;dbname=$database", $username, $password);
           $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
         ?>
