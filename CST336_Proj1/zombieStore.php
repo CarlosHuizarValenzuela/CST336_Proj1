@@ -1,3 +1,8 @@
+/*
+Link to Documents: https://docs.google.com/a/csumb.edu/document/d/1KNpn_Bj7iEKPeEEjzqRdB9Rr6N0Vaivb8B4JfacR0Yk/edit?usp=sharing 
+Link to Github: https://github.com/CarlosHuizarValenzuela/CST336_Proj1
+*/
+
 <?php
     session_start();
     if(empty($_SESSION['Cart'])){
