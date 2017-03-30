@@ -14,6 +14,13 @@
     </style>
     
     <body>
+        <script>
+        // When the user clicks on <div>, open the popup
+        function myFunction($thing) {
+            var popup = document.getElementById($thing);
+            popup.classList.toggle("show");
+        }
+        </script>
         <?php
           $servername = getenv('IP');
           $dbPort = 3306;
@@ -41,6 +48,7 @@
         </div>
         
         <?php
+            $next = 0;
             showGuns($dbConn);
             showMelee($dbConn);
             echo "<div style='clear:right;'></div>";
@@ -75,6 +83,7 @@
 
 <?php
     function showGuns($dbConn) {
+        global $next;
         $sql = "SELECT Guns.*
                 FROM Guns
                 ORDER BY Guns.GunId ASC";
@@ -89,15 +98,18 @@
                 </tr><br>";
         while ($row = $stmt->fetch()) {
             echo "  <tr>
-                        <td style='width:200px'>".$row['ProductName']."</td>
+                        <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
+                        <span class='popuptext' id=$next>".$row['ProductDesc']."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
+                    $next++;
         }
         echo "</table>";
     }
     
     function showMelee($dbConn) {
+        global $next;
         $sql = "SELECT Melee.*
                 FROM Melee
                 ORDER BY Melee.MeleeId ASC";
@@ -112,15 +124,18 @@
                 </tr>";
         while ($row = $stmt->fetch()) {
             echo "  <tr>
-                        <td style='width:200px'>".$row['ProductName']."</td>
+                        <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
+                        <span class='popuptext' id=$next>".$row['ProductDesc']."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
+                    $next++;
         }
         echo "</table>";
     }
     
     function showExplosives($dbConn) {
+        global $next;
         $sql = "SELECT Explosives.*
                 FROM Explosives
                 ORDER BY Explosives.ExplosivesId ASC";
@@ -135,15 +150,18 @@
                 </tr>";
         while ($row = $stmt->fetch()) {
             echo "  <tr>
-                        <td style='width:200px'>".$row['ProductName']."</td>
+                        <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
+                        <span class='popuptext' id=$next>".$row['ProductDesc']."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
+                    $next++;
         }
         echo "</table><br>";
     }
     
     function showAmmo($dbConn) {
+        global $next;
         $sql = "SELECT Ammo.*
                 FROM Ammo
                 ORDER BY Ammo.AmmoId ASC";
@@ -158,15 +176,18 @@
                 </tr>";
         while ($row = $stmt->fetch()) {
             echo "  <tr>
-                        <td style='width:200px'>".$row['ProductName']."</td>
+                        <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
+                        <span class='popuptext' id=$next>".$row['ProductDesc']."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
+                    $next++;
         }
         echo "</table>";
     }
     
     function showMedical($dbConn) {
+        global $next;
         $sql = "SELECT Medical.*
                 FROM Medical
                 ORDER BY Medical.MedicalId ASC";
@@ -181,10 +202,12 @@
                 </tr>";
         while ($row = $stmt->fetch()) {
             echo "  <tr>
-                        <td style='width:200px'>".$row['ProductName']."</td>
+                        <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
+                        <span class='popuptext' id=$next>".$row['ProductDesc']."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
+                    $next++;
         }
         echo "</table><br>";
     }
