@@ -146,7 +146,8 @@
         while ($row = $stmt->fetch()) {
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
-                        <span class='popuptext' id=$next>".$row['ProductDesc']."</span></td>
+                        <span class='popuptext' id=$next>".$row['ProductDesc'].
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='guns[]'>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -172,7 +173,8 @@
         while ($row = $stmt->fetch()) {
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
-                        <span class='popuptext' id=$next>".$row['ProductDesc']."</span></td>
+                        <span class='popuptext' id=$next>".$row['ProductDesc'].
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='guns[]'>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -198,7 +200,8 @@
         while ($row = $stmt->fetch()) {
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
-                        <span class='popuptext' id=$next>".$row['ProductDesc']."</span></td>
+                        <span class='popuptext' id=$next>".$row['ProductDesc'].
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='guns[]'>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -224,7 +227,8 @@
         while ($row = $stmt->fetch()) {
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
-                        <span class='popuptext' id=$next>".$row['ProductDesc']."</span></td>
+                        <span class='popuptext' id=$next>".$row['ProductDesc'].
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='guns[]'>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -250,7 +254,8 @@
         while ($row = $stmt->fetch()) {
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
-                        <span class='popuptext' id=$next>".$row['ProductDesc']."</span></td>
+                        <span class='popuptext' id=$next>".$row['ProductDesc'].
+                        "<br><label>Add to Cart:</label><input type='checkbox' name='guns[]'>"."</span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
