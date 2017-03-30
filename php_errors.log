@@ -240,3 +240,13 @@ Stack trace:
 #0 /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php(37): PDO->__construct('mysql:host=0.0....', 'carloshuizar', '')
 #1 {main}
   thrown in /home/ubuntu/workspace/Projects/CST336_Proj1/zombieStore.php on line 37
+[30-Mar-2017 05:01:32 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'david_jia'@'localhost' (using password: YES)' in /home/ubuntu/workspace/teamproject/CST336_Proj1/zombieStore.php:37
+Stack trace:
+#0 /home/ubuntu/workspace/teamproject/CST336_Proj1/zombieStore.php(37): PDO->__construct('mysql:host=0.0....', 'david_jia', 'dankMem3s')
+#1 {main}
+  thrown in /home/ubuntu/workspace/teamproject/CST336_Proj1/zombieStore.php on line 37
+[30-Mar-2017 05:01:57 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'david_jia'@'localhost' (using password: YES)' in /home/ubuntu/workspace/teamproject/CST336_Proj1/confirmation.php:37
+Stack trace:
+#0 /home/ubuntu/workspace/teamproject/CST336_Proj1/confirmation.php(37): PDO->__construct('mysql:host=0.0....', 'david_jia', 'dankMem3s')
+#1 {main}
+  thrown in /home/ubuntu/workspace/teamproject/CST336_Proj1/confirmation.php on line 37
