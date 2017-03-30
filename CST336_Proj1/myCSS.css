@@ -10,36 +10,36 @@ h1{
     color:white;
     text-align: center;
 }
+h2{ 
+    color:white;
+}
 img{
     padding-top: 10px;
     height:200px;
     width:59%;
     text-align: center;
 }
-html, body, h1, div, head{
+html, body, h1, h2, div, head{
     font-family: 'Joti One', cursive;
 }
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+table {
+    text-align:center;
+    border-width:1px;
+    border-color:white;
+    border-style:solid;
+    border-collapse:collapse;
+    table-layout:fixed;
 }
 
-li {
-    float: left;
+td {
+    color:white;
+    border-width:1px;
+    border-color:white;
+    border-style:solid;
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
+th {
+    font-family: 'Joti One', cursive;
+    color:white;
+    font-size:20px;
 }
