@@ -36,6 +36,15 @@
           $password = "";
           $dbConn = new PDO("mysql:host=$servername;port=$dbPort;dbname=$database", $username, $password);
           $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+          unset($_SESSION['Cart']);
+          if (empty($_SESSION['Cart'])){
+            $_SESSION['Cart'] = array();
+          }
+          if (!empty($_POST['Cart'])) {
+              foreach ($_POST['Cart'] as $item) {
+                  array_push($_SESSION['Cart'], $item);
+              }
+          }
         ?>
         <h1>Zombie Survival Store</h1>
     
@@ -53,8 +62,15 @@
             
         </form>
         
-
-
+        <?php 
+            if (!empty($_SESSION['Cart']))
+                printMerchandise($dbConn);
+            else {
+               echo "<h3>You did not buy anything!</h3>";    
+            }
+        ?>
+        
+        <p style="text-align:center"><a href="zombieStore.php" class="none"><button type="button">Back</button></a></p>
 
         <script>
         var myIndex = 0;
@@ -77,358 +93,52 @@
 </html>
 
 <?php
-    function showGuns($dbConn) {
-        global $next;
-        $sql = "SELECT Guns.*
-                FROM Guns";
-        if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
-            $sql = $sql." WHERE Guns.Price <= ".$_POST['priceFilter']."";
-        }
-        if (!empty($_POST['weightFilter']) && $_POST['weightFilter'] >= 0) {
-            if (empty($_POST['priceFilter'])) {
-                $sql = $sql." WHERE Guns.Weight <= ".$_POST['weightFilter']."";
-            }
-            else {
-                $sql = $sql." AND Guns.Weight <= ".$_POST['weightFilter']."";
-            }
-        }
-        if (!empty($_POST['nameFilter'])) {
-            if (empty($_POST['priceFilter']) && empty($_POST['weightFilter'])) {
-                $sql = $sql." WHERE Guns.ProductName LIKE '".$_POST['nameFilter']."%'";
-            }
-            else {
-                $sql = $sql." AND Guns.ProductName LIKE '".$_POST['nameFilter']."%'";
-            }
-        }
-        if ($_POST['sortType'] == "asc") {
-            if ($_POST['orderType'] == "name") {
-                $sql = $sql." ORDER BY Guns.ProductName ASC";
-            }
-            else if ($_POST['orderType'] == "price") {
-                $sql = $sql." ORDER BY Guns.Price ASC";
-            }
-            else if ($_POST['orderType'] == "weight") {
-                $sql = $sql." ORDER BY Guns.Weight ASC";
-            }
-        }
-        else if ($_POST['sortType'] == "desc") {
-            if ($_POST['orderType'] == "name") {
-                $sql = $sql." ORDER BY Guns.ProductName DESC";
-            }
-            else if ($_POST['orderType'] == "price") {
-                $sql = $sql." ORDER BY Guns.Price DESC";
-            }
-            else if ($_POST['orderType'] == "weight") {
-                $sql = $sql." ORDER BY Guns.Weight DESC";
-            }
-        }
-        else {
-            $sql = $sql." ORDER BY Guns.GunId ASC";
-        }
-        $stmt = $dbConn->prepare($sql);
-        $stmt->execute();
-        echo "<table style='float:left'>
-                <th colspan='3'>Guns</th>
+    function printMerchandise($dbConn) {
+        $priceTotal = 0;
+        $weightTotal = 0;
+        echo "<table align=center>
+                <th colspan='3'>Shopping Cart</th>
                 <tr>
-                    <td style='width:200px'><b>Gun Model</b></td>
-                    <td style='width:100px'><b>Weight (kg)</b></td>
-                    <td style='width:100px'><b>Price</b></td>
-                </tr><br>";
-        while ($row = $stmt->fetch()) {
-            $value = $row["ProductName"];
-            echo "  <tr>
-                        <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
-                        <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart: </label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
-                        <td style='width:100px'>".$row['Weight']."</td>
-                        <td style='width:100px'>$".$row['Price']."</td>
-                    </tr>";
-                    $next++;
-        }
-        echo "</table>";
-    }
-    
-    function showMelee($dbConn) {
-        global $next;
-        $sql = "SELECT Melee.*
-                FROM Melee";
-        if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
-            $sql = $sql." WHERE Melee.Price <= ".$_POST['priceFilter']."";
-        }
-        if (!empty($_POST['weightFilter']) && $_POST['weightFilter'] >= 0) {
-            if (empty($_POST['priceFilter'])) {
-                $sql = $sql." WHERE Melee.Weight <= ".$_POST['weightFilter']."";
-            }
-            else {
-                $sql = $sql." AND Melee.Weight <= ".$_POST['weightFilter']."";
-            }
-        }
-        if (!empty($_POST['nameFilter'])) {
-            if (empty($_POST['priceFilter']) && empty($_POST['weightFilter'])) {
-                $sql = $sql." WHERE Melee.ProductName LIKE '".$_POST['nameFilter']."%'";
-            }
-            else {
-                $sql = $sql." AND Melee.ProductName LIKE '".$_POST['nameFilter']."%'";
-            }
-        }
-        if ($_POST['sortType'] == "asc") {
-            if ($_POST['orderType'] == "name") {
-                $sql = $sql." ORDER BY Melee.ProductName ASC";
-            }
-            else if ($_POST['orderType'] == "price") {
-                $sql = $sql." ORDER BY Melee.Price ASC";
-            }
-            else if ($_POST['orderType'] == "weight") {
-                $sql = $sql." ORDER BY Melee.Weight ASC";
-            }
-        }
-        else if ($_POST['sortType'] == "desc") {
-            if ($_POST['orderType'] == "name") {
-                $sql = $sql." ORDER BY Melee.ProductName DESC";
-            }
-            else if ($_POST['orderType'] == "price") {
-                $sql = $sql." ORDER BY Melee.Price DESC";
-            }
-            else if ($_POST['orderType'] == "weight") {
-                $sql = $sql." ORDER BY Melee.Weight DESC";
-            }
-        }
-        else {
-            $sql = $sql." ORDER BY Melee.MeleeId ASC";
-        }
-        $stmt = $dbConn->prepare($sql);
-        $stmt->execute();
-        echo "<table style='float:right'>
-                <th colspan='3'>Melee</th>
-                <tr>
-                    <td style='width:200px'><b>Melee Weapon</b></td>
+                    <td style='width:200px'><b>Item Name</b></td>
                     <td style='width:100px'><b>Weight (kg)</b></td>
                     <td style='width:100px'><b>Price</b></td>
                 </tr>";
-        while ($row = $stmt->fetch()) {
-            $value = $row["ProductName"];
+        foreach ($_SESSION['Cart'] as $item) {
+            $sql = "SELECT *
+                    FROM Guns
+                    WHERE Guns.ProductName = '$item' 
+                    UNION
+                    SELECT *
+                    FROM Ammo
+                    WHERE Ammo.ProductName = '$item' 
+                    UNION
+                    SELECT *
+                    FROM Explosives
+                    WHERE Explosives.ProductName = '$item' 
+                    UNION
+                    SELECT *
+                    FROM Melee
+                    WHERE Melee.ProductName = '$item' 
+                    UNION
+                    SELECT *
+                    FROM Medical
+                    WHERE Medical.ProductName = '$item'";
+            $stmt = $dbConn->prepare($sql);
+            $stmt->execute();
+            $productInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+            $weightTotal += $productInfo['Weight'];
+            $priceTotal += $productInfo['Price'];
             echo "  <tr>
-                        <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
-                        <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
-                        <td style='width:100px'>".$row['Weight']."</td>
-                        <td style='width:100px'>$".$row['Price']."</td>
+                        <td style='width:200px'>$item</td>
+                        <td style='width:100px'>".$productInfo['Weight']."</td>
+                        <td style='width:100px'>$".$productInfo['Price']."</td>
                     </tr>";
-                    $next++;
         }
-        echo "</table>";
-    }
-    
-    function showExplosives($dbConn) {
-        global $next;
-        $sql = "SELECT Explosives.*
-                FROM Explosives";
-        if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
-            $sql = $sql." WHERE Explosives.Price <= ".$_POST['priceFilter']."";
-        }
-        if (!empty($_POST['weightFilter']) && $_POST['weightFilter'] >= 0) {
-            if (empty($_POST['priceFilter'])) {
-                $sql = $sql." WHERE Explosives.Weight <= ".$_POST['weightFilter']."";
-            }
-            else {
-                $sql = $sql." AND Explosives.Weight <= ".$_POST['weightFilter']."";
-            }
-        }
-        if (!empty($_POST['nameFilter'])) {
-            if (empty($_POST['priceFilter']) && empty($_POST['weightFilter'])) {
-                $sql = $sql." WHERE Explosives.ProductName LIKE '".$_POST['nameFilter']."%'";
-            }
-            else {
-                $sql = $sql." AND Explosives.ProductName LIKE '".$_POST['nameFilter']."%'";
-            }
-        }
-        if ($_POST['sortType'] == "asc") {
-            if ($_POST['orderType'] == "name") {
-                $sql = $sql." ORDER BY Explosives.ProductName ASC";
-            }
-            else if ($_POST['orderType'] == "price") {
-                $sql = $sql." ORDER BY Explosives.Price ASC";
-            }
-            else if ($_POST['orderType'] == "weight") {
-                $sql = $sql." ORDER BY Explosives.Weight ASC";
-            }
-        }
-        else if ($_POST['sortType'] == "desc") {
-            if ($_POST['orderType'] == "name") {
-                $sql = $sql." ORDER BY Explosives.ProductName DESC";
-            }
-            else if ($_POST['orderType'] == "price") {
-                $sql = $sql." ORDER BY Explosives.Price DESC";
-            }
-            else if ($_POST['orderType'] == "weight") {
-                $sql = $sql." ORDER BY Explosives.Weight DESC";
-            }
-        }
-        else {
-            $sql = $sql." ORDER BY Explosives.ExplosivesId ASC";
-        }
-        $stmt = $dbConn->prepare($sql);
-        $stmt->execute();
-        echo "<br><table style='float:right'>
-                <th colspan='3'>Explosives</th>
-                <tr>
-                    <td style='width:200px'><b>Explosive Type</b></td>
-                    <td style='width:100px'><b>Weight (kg)</b></td>
-                    <td style='width:100px'><b>Price</b></td>
+        echo "  <tr>
+                    <td style='width:200px'>Totals</td>
+                    <td style='width:100px'>".$weightTotal."</td>
+                    <td style='width:100px'>$".$priceTotal."</td>
                 </tr>";
-        while ($row = $stmt->fetch()) {
-            $value = $row["ProductName"];
-            echo "  <tr>
-                        <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
-                        <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
-                        <td style='width:100px'>".$row['Weight']."</td>
-                        <td style='width:100px'>$".$row['Price']."</td>
-                    </tr>";
-                    $next++;
-        }
-        echo "</table><br>";
-    }
-    
-    function showAmmo($dbConn) {
-        global $next;
-        $sql = "SELECT Ammo.*
-                FROM Ammo";
-        if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
-            $sql = $sql." WHERE Ammo.Price <= ".$_POST['priceFilter']."";
-        }
-        if (!empty($_POST['weightFilter']) && $_POST['weightFilter'] >= 0) {
-            if (empty($_POST['priceFilter'])) {
-                $sql = $sql." WHERE Ammo.Weight <= ".$_POST['weightFilter']."";
-            }
-            else {
-                $sql = $sql." AND Ammo.Weight <= ".$_POST['weightFilter']."";
-            }
-        }
-        if (!empty($_POST['nameFilter'])) {
-            if (empty($_POST['priceFilter']) && empty($_POST['weightFilter'])) {
-                $sql = $sql." WHERE Ammo.ProductName LIKE '".$_POST['nameFilter']."%'";
-            }
-            else {
-                $sql = $sql." AND Ammo.ProductName LIKE '".$_POST['nameFilter']."%'";
-            }
-        }
-        if ($_POST['sortType'] == "asc") {
-            if ($_POST['orderType'] == "name") {
-                $sql = $sql." ORDER BY Ammo.ProductName ASC";
-            }
-            else if ($_POST['orderType'] == "price") {
-                $sql = $sql." ORDER BY Ammo.Price ASC";
-            }
-            else if ($_POST['orderType'] == "weight") {
-                $sql = $sql." ORDER BY Ammo.Weight ASC";
-            }
-        }
-        else if ($_POST['sortType'] == "desc") {
-            if ($_POST['orderType'] == "name") {
-                $sql = $sql." ORDER BY Ammo.ProductName DESC";
-            }
-            else if ($_POST['orderType'] == "price") {
-                $sql = $sql." ORDER BY Ammo.Price DESC";
-            }
-            else if ($_POST['orderType'] == "weight") {
-                $sql = $sql." ORDER BY Ammo.Weight DESC";
-            }
-        }
-        else {
-            $sql = $sql." ORDER BY Ammo.AmmoId ASC";
-        }
-        $stmt = $dbConn->prepare($sql);
-        $stmt->execute();
-        echo "<br><table style='float:left'>
-                <th colspan='3'>Ammo</th>
-                <tr>
-                    <td style='width:200px'><b>Ammo Type</b></td>
-                    <td style='width:100px'><b>Weight (kg)</b></td>
-                    <td style='width:100px'><b>Price</b></td>
-                </tr>";
-        while ($row = $stmt->fetch()) {
-            $value = $row["ProductName"];
-            echo "  <tr>
-                        <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
-                        <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
-                        <td style='width:100px'>".$row['Weight']."</td>
-                        <td style='width:100px'>$".$row['Price']."</td>
-                    </tr>";
-                    $next++;
-        }
-        echo "</table>";
-    }
-    
-    function showMedical($dbConn) {
-        global $next;
-        $sql = "SELECT Medical.*
-                FROM Medical";
-        if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
-            $sql = $sql." WHERE Medical.Price <= ".$_POST['priceFilter']."";
-        }
-        if (!empty($_POST['weightFilter']) && $_POST['weightFilter'] >= 0) {
-            if (empty($_POST['priceFilter'])) {
-                $sql = $sql." WHERE Medical.Weight <= ".$_POST['weightFilter']."";
-            }
-            else {
-                $sql = $sql." AND Medical.Weight <= ".$_POST['weightFilter']."";
-            }
-        }
-        if (!empty($_POST['nameFilter'])) {
-            if (empty($_POST['priceFilter']) && empty($_POST['weightFilter'])) {
-                $sql = $sql." WHERE Medical.ProductName LIKE '".$_POST['nameFilter']."%'";
-            }
-            else {
-                $sql = $sql." AND Medical.ProductName LIKE '".$_POST['nameFilter']."%'";
-            }
-        }
-        if ($_POST['sortType'] == "asc") {
-            if ($_POST['orderType'] == "name") {
-                $sql = $sql." ORDER BY Medical.ProductName ASC";
-            }
-            else if ($_POST['orderType'] == "price") {
-                $sql = $sql." ORDER BY Medical.Price ASC";
-            }
-            else if ($_POST['orderType'] == "weight") {
-                $sql = $sql." ORDER BY Medical.Weight ASC";
-            }
-        }
-        else if ($_POST['sortType'] == "desc") {
-            if ($_POST['orderType'] == "name") {
-                $sql = $sql." ORDER BY Medical.ProductName DESC";
-            }
-            else if ($_POST['orderType'] == "price") {
-                $sql = $sql." ORDER BY Medical.Price DESC";
-            }
-            else if ($_POST['orderType'] == "weight") {
-                $sql = $sql." ORDER BY Medical.Weight DESC";
-            }
-        }
-        else {
-            $sql = $sql." ORDER BY Medical.MedicalId ASC";
-        }
-        $stmt = $dbConn->prepare($sql);
-        $stmt->execute();
-        echo "<br><table style='float:right'>
-                <th colspan='3'>Medical</th>
-                <tr>
-                    <td style='width:200px'><b>Medical Equipment</b></td>
-                    <td style='width:100px'><b>Weight (kg)</b></td>
-                    <td style='width:100px'><b>Price</b></td>
-                </tr>";
-        while ($row = $stmt->fetch()) {
-            $value = $row["ProductName"];
-            echo "  <tr>
-                        <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
-                        <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
-                        <td style='width:100px'>".$row['Weight']."</td>
-                        <td style='width:100px'>$".$row['Price']."</td>
-                    </tr>";
-                    $next++;
-        }
         echo "</table><br>";
     }
 ?>

@@ -121,8 +121,9 @@
         <h3>Click on Item to Open Description and Get Option to Add to Cart</h3>
         
         <form action="confirmation.php" method="POST">
-            <?php
+        <?php
             $next = 0;
+            $num = 0;
             showGuns($dbConn);
             showMelee($dbConn);
             echo "<div style='clear:right;'></div>";
@@ -134,6 +135,7 @@
         ?>
         
         <div id="footer">
+            <br><br>
             <input type="submit" name="submit" value="Submit"/>
         </div>
         
@@ -166,7 +168,7 @@
 
 <?php
     function showGuns($dbConn) {
-        global $next;
+        global $next, $num;
         $sql = "SELECT Guns.*
                 FROM Guns";
         if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
@@ -223,11 +225,12 @@
                     <td style='width:100px'><b>Price</b></td>
                 </tr><br>";
         while ($row = $stmt->fetch()) {
+            $num++;
             $value = $row["ProductName"];
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart: </label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
+                        "<br><label>Add to Cart: </label><input type='checkbox' name='Cart[".$num."]' value='$value'></span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -237,7 +240,7 @@
     }
     
     function showMelee($dbConn) {
-        global $next;
+        global $next, $num;
         $sql = "SELECT Melee.*
                 FROM Melee";
         if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
@@ -294,11 +297,12 @@
                     <td style='width:100px'><b>Price</b></td>
                 </tr>";
         while ($row = $stmt->fetch()) {
+            $num++;
             $value = $row["ProductName"];
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
+                        "<br><label>Add to Cart: </label><input type='checkbox' name='Cart[".$num."]' value='$value'></span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -308,7 +312,7 @@
     }
     
     function showExplosives($dbConn) {
-        global $next;
+        global $next, $num;
         $sql = "SELECT Explosives.*
                 FROM Explosives";
         if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
@@ -365,11 +369,12 @@
                     <td style='width:100px'><b>Price</b></td>
                 </tr>";
         while ($row = $stmt->fetch()) {
+            $num++;
             $value = $row["ProductName"];
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
+                        "<br><label>Add to Cart: </label><input type='checkbox' name='Cart[".$num."]' value='$value'></span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -379,7 +384,7 @@
     }
     
     function showAmmo($dbConn) {
-        global $next;
+        global $next, $num;
         $sql = "SELECT Ammo.*
                 FROM Ammo";
         if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
@@ -436,11 +441,12 @@
                     <td style='width:100px'><b>Price</b></td>
                 </tr>";
         while ($row = $stmt->fetch()) {
+            $num++;
             $value = $row["ProductName"];
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
+                        "<br><label>Add to Cart: </label><input type='checkbox' name='Cart[".$num."]' value='$value'></span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
@@ -450,7 +456,7 @@
     }
     
     function showMedical($dbConn) {
-        global $next;
+        global $next, $num;
         $sql = "SELECT Medical.*
                 FROM Medical";
         if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
@@ -507,11 +513,12 @@
                     <td style='width:100px'><b>Price</b></td>
                 </tr>";
         while ($row = $stmt->fetch()) {
+            $num++;
             $value = $row["ProductName"];
             echo "  <tr>
                         <td style='width:200px' class='popup' onclick='myFunction($next)'>".$row['ProductName']."
                         <span class='popuptext' id=$next>".$row['ProductDesc'].
-                        "<br><label>Add to Cart:</label><input type='checkbox' name='Cart[]' value=$value>"."</span></td>
+                        "<br><label>Add to Cart: </label><input type='checkbox' name='Cart[".$num."]' value='$value'></span></td>
                         <td style='width:100px'>".$row['Weight']."</td>
                         <td style='width:100px'>$".$row['Price']."</td>
                     </tr>";
