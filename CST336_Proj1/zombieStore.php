@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     if(empty($_SESSION['Cart'])){
         $_SESSION['Cart'] = array();
     }
@@ -121,8 +120,8 @@
         </form>
         <h3>Click on Item to Open Description and Get Option to Add to Cart</h3>
         
-        
-        <?php
+        <form action="confirmation.php" method="POST">
+            <?php
             $next = 0;
             showGuns($dbConn);
             showMelee($dbConn);
@@ -133,6 +132,12 @@
             echo "<div style='clear:right;'></div>";
             showMedical($dbConn);
         ?>
+        
+        <input type="submit" name="submit" value="Submit"/>
+            
+            
+        </form>
+        
 
 
 
