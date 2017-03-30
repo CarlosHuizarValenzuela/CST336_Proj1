@@ -65,6 +65,14 @@
             else if(empty($_POST['sortType']) || empty($_POST['orderType'])){
                 echo "You cannot have without the other.";
             }
+            
+            if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] < 0) {
+                echo "You cannot enter a price lower than 0.";
+            }
+            
+            if (!empty($_POST['weightFilter']) && $_POST['weightFilter'] < 0) {
+                echo "You cannot enter a weight lower than 0.";
+            }
         ?>
         </div>
         <!--****************************************************************-->
@@ -84,6 +92,18 @@
                 <option value="price">Price</option>
                 <option value="weight">Weight</option>
             </select>
+            <br><br>
+            
+            <label>Enter your Max Price Filter:</label> 
+            <input type="text" name="priceFilter">
+            <br><br>
+            
+            <label>Enter your Max Weight Filter:</label>
+            <input type="text" name="weightFilter">
+            <br><br>
+            
+            <label>Enter the starting letters of the product you are searching for:</label>
+            <input type="text" name="nameFilter">
             <br><br>
             
             <input type="submit" value="Arrange Items"/>
@@ -132,8 +152,51 @@
     function showGuns($dbConn) {
         global $next;
         $sql = "SELECT Guns.*
-                FROM Guns
-                ORDER BY Guns.GunId ASC";
+                FROM Guns";
+        if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
+            $sql = $sql." WHERE Guns.Price <= ".$_POST['priceFilter']."";
+        }
+        if (!empty($_POST['weightFilter']) && $_POST['weightFilter'] >= 0) {
+            if (empty($_POST['priceFilter'])) {
+                $sql = $sql." WHERE Guns.Weight <= ".$_POST['weightFilter']."";
+            }
+            else {
+                $sql = $sql." AND Guns.Weight <= ".$_POST['weightFilter']."";
+            }
+        }
+        if (!empty($_POST['nameFilter'])) {
+            if (empty($_POST['priceFilter']) && empty($_POST['weightFilter'])) {
+                $sql = $sql." WHERE Guns.ProductName LIKE '".$_POST['nameFilter']."%'";
+            }
+            else {
+                $sql = $sql." AND Guns.ProductName LIKE '".$_POST['nameFilter']."%'";
+            }
+        }
+        if ($_POST['sortType'] == "asc") {
+            if ($_POST['orderType'] == "name") {
+                $sql = $sql." ORDER BY Guns.ProductName ASC";
+            }
+            else if ($_POST['orderType'] == "price") {
+                $sql = $sql." ORDER BY Guns.Price ASC";
+            }
+            else if ($_POST['orderType'] == "weight") {
+                $sql = $sql." ORDER BY Guns.Weight ASC";
+            }
+        }
+        else if ($_POST['sortType'] == "desc") {
+            if ($_POST['orderType'] == "name") {
+                $sql = $sql." ORDER BY Guns.ProductName DESC";
+            }
+            else if ($_POST['orderType'] == "price") {
+                $sql = $sql." ORDER BY Guns.Price DESC";
+            }
+            else if ($_POST['orderType'] == "weight") {
+                $sql = $sql." ORDER BY Guns.Weight DESC";
+            }
+        }
+        else {
+            $sql = $sql." ORDER BY Guns.GunId ASC";
+        }
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
         echo "<table style='float:left'>
@@ -159,8 +222,51 @@
     function showMelee($dbConn) {
         global $next;
         $sql = "SELECT Melee.*
-                FROM Melee
-                ORDER BY Melee.MeleeId ASC";
+                FROM Melee";
+        if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
+            $sql = $sql." WHERE Melee.Price <= ".$_POST['priceFilter']."";
+        }
+        if (!empty($_POST['weightFilter']) && $_POST['weightFilter'] >= 0) {
+            if (empty($_POST['priceFilter'])) {
+                $sql = $sql." WHERE Melee.Weight <= ".$_POST['weightFilter']."";
+            }
+            else {
+                $sql = $sql." AND Melee.Weight <= ".$_POST['weightFilter']."";
+            }
+        }
+        if (!empty($_POST['nameFilter'])) {
+            if (empty($_POST['priceFilter']) && empty($_POST['weightFilter'])) {
+                $sql = $sql." WHERE Melee.ProductName LIKE '".$_POST['nameFilter']."%'";
+            }
+            else {
+                $sql = $sql." AND Melee.ProductName LIKE '".$_POST['nameFilter']."%'";
+            }
+        }
+        if ($_POST['sortType'] == "asc") {
+            if ($_POST['orderType'] == "name") {
+                $sql = $sql." ORDER BY Melee.ProductName ASC";
+            }
+            else if ($_POST['orderType'] == "price") {
+                $sql = $sql." ORDER BY Melee.Price ASC";
+            }
+            else if ($_POST['orderType'] == "weight") {
+                $sql = $sql." ORDER BY Melee.Weight ASC";
+            }
+        }
+        else if ($_POST['sortType'] == "desc") {
+            if ($_POST['orderType'] == "name") {
+                $sql = $sql." ORDER BY Melee.ProductName DESC";
+            }
+            else if ($_POST['orderType'] == "price") {
+                $sql = $sql." ORDER BY Melee.Price DESC";
+            }
+            else if ($_POST['orderType'] == "weight") {
+                $sql = $sql." ORDER BY Melee.Weight DESC";
+            }
+        }
+        else {
+            $sql = $sql." ORDER BY Melee.MeleeId ASC";
+        }
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
         echo "<table style='float:right'>
@@ -186,8 +292,51 @@
     function showExplosives($dbConn) {
         global $next;
         $sql = "SELECT Explosives.*
-                FROM Explosives
-                ORDER BY Explosives.ExplosivesId ASC";
+                FROM Explosives";
+        if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
+            $sql = $sql." WHERE Explosives.Price <= ".$_POST['priceFilter']."";
+        }
+        if (!empty($_POST['weightFilter']) && $_POST['weightFilter'] >= 0) {
+            if (empty($_POST['priceFilter'])) {
+                $sql = $sql." WHERE Explosives.Weight <= ".$_POST['weightFilter']."";
+            }
+            else {
+                $sql = $sql." AND Explosives.Weight <= ".$_POST['weightFilter']."";
+            }
+        }
+        if (!empty($_POST['nameFilter'])) {
+            if (empty($_POST['priceFilter']) && empty($_POST['weightFilter'])) {
+                $sql = $sql." WHERE Explosives.ProductName LIKE '".$_POST['nameFilter']."%'";
+            }
+            else {
+                $sql = $sql." AND Explosives.ProductName LIKE '".$_POST['nameFilter']."%'";
+            }
+        }
+        if ($_POST['sortType'] == "asc") {
+            if ($_POST['orderType'] == "name") {
+                $sql = $sql." ORDER BY Explosives.ProductName ASC";
+            }
+            else if ($_POST['orderType'] == "price") {
+                $sql = $sql." ORDER BY Explosives.Price ASC";
+            }
+            else if ($_POST['orderType'] == "weight") {
+                $sql = $sql." ORDER BY Explosives.Weight ASC";
+            }
+        }
+        else if ($_POST['sortType'] == "desc") {
+            if ($_POST['orderType'] == "name") {
+                $sql = $sql." ORDER BY Explosives.ProductName DESC";
+            }
+            else if ($_POST['orderType'] == "price") {
+                $sql = $sql." ORDER BY Explosives.Price DESC";
+            }
+            else if ($_POST['orderType'] == "weight") {
+                $sql = $sql." ORDER BY Explosives.Weight DESC";
+            }
+        }
+        else {
+            $sql = $sql." ORDER BY Explosives.ExplosivesId ASC";
+        }
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
         echo "<br><table style='float:right'>
@@ -213,8 +362,51 @@
     function showAmmo($dbConn) {
         global $next;
         $sql = "SELECT Ammo.*
-                FROM Ammo
-                ORDER BY Ammo.AmmoId ASC";
+                FROM Ammo";
+        if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
+            $sql = $sql." WHERE Ammo.Price <= ".$_POST['priceFilter']."";
+        }
+        if (!empty($_POST['weightFilter']) && $_POST['weightFilter'] >= 0) {
+            if (empty($_POST['priceFilter'])) {
+                $sql = $sql." WHERE Ammo.Weight <= ".$_POST['weightFilter']."";
+            }
+            else {
+                $sql = $sql." AND Ammo.Weight <= ".$_POST['weightFilter']."";
+            }
+        }
+        if (!empty($_POST['nameFilter'])) {
+            if (empty($_POST['priceFilter']) && empty($_POST['weightFilter'])) {
+                $sql = $sql." WHERE Ammo.ProductName LIKE '".$_POST['nameFilter']."%'";
+            }
+            else {
+                $sql = $sql." AND Ammo.ProductName LIKE '".$_POST['nameFilter']."%'";
+            }
+        }
+        if ($_POST['sortType'] == "asc") {
+            if ($_POST['orderType'] == "name") {
+                $sql = $sql." ORDER BY Ammo.ProductName ASC";
+            }
+            else if ($_POST['orderType'] == "price") {
+                $sql = $sql." ORDER BY Ammo.Price ASC";
+            }
+            else if ($_POST['orderType'] == "weight") {
+                $sql = $sql." ORDER BY Ammo.Weight ASC";
+            }
+        }
+        else if ($_POST['sortType'] == "desc") {
+            if ($_POST['orderType'] == "name") {
+                $sql = $sql." ORDER BY Ammo.ProductName DESC";
+            }
+            else if ($_POST['orderType'] == "price") {
+                $sql = $sql." ORDER BY Ammo.Price DESC";
+            }
+            else if ($_POST['orderType'] == "weight") {
+                $sql = $sql." ORDER BY Ammo.Weight DESC";
+            }
+        }
+        else {
+            $sql = $sql." ORDER BY Ammo.AmmoId ASC";
+        }
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
         echo "<br><table style='float:left'>
@@ -240,8 +432,51 @@
     function showMedical($dbConn) {
         global $next;
         $sql = "SELECT Medical.*
-                FROM Medical
-                ORDER BY Medical.MedicalId ASC";
+                FROM Medical";
+        if (!empty($_POST['priceFilter']) && $_POST['priceFilter'] >= 0) {
+            $sql = $sql." WHERE Medical.Price <= ".$_POST['priceFilter']."";
+        }
+        if (!empty($_POST['weightFilter']) && $_POST['weightFilter'] >= 0) {
+            if (empty($_POST['priceFilter'])) {
+                $sql = $sql." WHERE Medical.Weight <= ".$_POST['weightFilter']."";
+            }
+            else {
+                $sql = $sql." AND Medical.Weight <= ".$_POST['weightFilter']."";
+            }
+        }
+        if (!empty($_POST['nameFilter'])) {
+            if (empty($_POST['priceFilter']) && empty($_POST['weightFilter'])) {
+                $sql = $sql." WHERE Medical.ProductName LIKE '".$_POST['nameFilter']."%'";
+            }
+            else {
+                $sql = $sql." AND Medical.ProductName LIKE '".$_POST['nameFilter']."%'";
+            }
+        }
+        if ($_POST['sortType'] == "asc") {
+            if ($_POST['orderType'] == "name") {
+                $sql = $sql." ORDER BY Medical.ProductName ASC";
+            }
+            else if ($_POST['orderType'] == "price") {
+                $sql = $sql." ORDER BY Medical.Price ASC";
+            }
+            else if ($_POST['orderType'] == "weight") {
+                $sql = $sql." ORDER BY Medical.Weight ASC";
+            }
+        }
+        else if ($_POST['sortType'] == "desc") {
+            if ($_POST['orderType'] == "name") {
+                $sql = $sql." ORDER BY Medical.ProductName DESC";
+            }
+            else if ($_POST['orderType'] == "price") {
+                $sql = $sql." ORDER BY Medical.Price DESC";
+            }
+            else if ($_POST['orderType'] == "weight") {
+                $sql = $sql." ORDER BY Medical.Weight DESC";
+            }
+        }
+        else {
+            $sql = $sql." ORDER BY Medical.MedicalId ASC";
+        }
         $stmt = $dbConn->prepare($sql);
         $stmt->execute();
         echo "<br><table style='float:right'>
